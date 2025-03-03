@@ -1,0 +1,25 @@
+# Circuit IQ Enterprise Configuration
+
+# Server Settings
+HOST: '0.0.0.0'  # Listen on all interfaces
+PORT: 5000
+DEBUG: false
+
+# Upload Settings
+MAX_UPLOAD_SIZE: 16777216  # 16MB in bytes
+UPLOAD_FOLDER: '/var/circuit-iq/uploads'
+RESULTS_FOLDER: '/var/circuit-iq/results'
+
+# Cache Settings
+CACHE_TYPE: 'simple'  # Options: simple, redis, memcached
+CACHE_TIMEOUT: 300    # 5 minutes
+CACHE_THRESHOLD: 500  # Maximum items in cache
+
+# Security
+API_KEYS_FILE: '/etc/circuit-iq/api_keys.json'
+USAGE_LOG_FILE: '/var/log/circuit-iq/usage.log'
+ALLOWED_ORIGINS: 'https://your-domain.com,https://api.your-domain.com'
+
+# Logging
+LOG_LEVEL: 'INFO'  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+LOG_FILE: '/var/log/circuit-iq/app.log' 
