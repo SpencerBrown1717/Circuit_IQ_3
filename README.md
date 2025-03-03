@@ -1,4 +1,4 @@
-# Circuit IQ API
+# Circuit_IQ_3 API
 
 Enterprise B2B API for text-to-PCB design automation. Convert natural language descriptions into PCB designs and extract component information from datasheets.
 
@@ -15,8 +15,8 @@ Enterprise B2B API for text-to-PCB design automation. Convert natural language d
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/circuit-iq.git
-cd circuit-iq
+git clone https://github.com/YOUR_USERNAME/circuit-iq-3.git
+cd circuit-iq-3
 ```
 
 2. Install dependencies:
@@ -32,21 +32,21 @@ pip install -r requirements.txt
 Example production setup:
 ```bash
 # Copy configuration
-sudo mkdir -p /etc/circuit-iq
-sudo cp config.yaml.example /etc/circuit-iq/config.yaml
-sudo vim /etc/circuit-iq/config.yaml
+sudo mkdir -p /etc/circuit-iq-3
+sudo cp config.yaml.example /etc/circuit-iq-3/config.yaml
+sudo vim /etc/circuit-iq-3/config.yaml
 
 # Create required directories
-sudo mkdir -p /var/circuit-iq/uploads
-sudo mkdir -p /var/circuit-iq/results
-sudo mkdir -p /var/log/circuit-iq
+sudo mkdir -p /var/circuit-iq-3/uploads
+sudo mkdir -p /var/circuit-iq-3/results
+sudo mkdir -p /var/log/circuit-iq-3
 
 # Set permissions
-sudo chown -R circuit-iq:circuit-iq /var/circuit-iq
-sudo chown -R circuit-iq:circuit-iq /var/log/circuit-iq
+sudo chown -R circuit-iq:circuit-iq /var/circuit-iq-3
+sudo chown -R circuit-iq:circuit-iq /var/log/circuit-iq-3
 
 # Set configuration path
-export CIRCUIT_IQ_CONFIG=/etc/circuit-iq/config.yaml
+export CIRCUIT_IQ_CONFIG=/etc/circuit-iq-3/config.yaml
 ```
 
 ### Configuration
@@ -65,12 +65,12 @@ DEBUG: false
 
 # Upload Settings
 MAX_UPLOAD_SIZE: 16777216  # 16MB
-UPLOAD_FOLDER: '/var/circuit-iq/uploads'
-RESULTS_FOLDER: '/var/circuit-iq/results'
+UPLOAD_FOLDER: '/var/circuit-iq-3/uploads'
+RESULTS_FOLDER: '/var/circuit-iq-3/results'
 
 # Security
-API_KEYS_FILE: '/etc/circuit-iq/api_keys.json'
-USAGE_LOG_FILE: '/var/log/circuit-iq/usage.log'
+API_KEYS_FILE: '/etc/circuit-iq-3/api_keys.json'
+USAGE_LOG_FILE: '/var/log/circuit-iq-3/usage.log'
 ```
 
 #### Environment Variables
@@ -96,17 +96,17 @@ For high availability, consider using:
 - Supervisor or systemd for process management
 - Redis or Memcached for caching
 
-Example systemd service file (`/etc/systemd/system/circuit-iq.service`):
+Example systemd service file (`/etc/systemd/system/circuit-iq-3.service`):
 ```ini
 [Unit]
-Description=Circuit IQ API Service
+Description=Circuit IQ 3 API Service
 After=network.target
 
 [Service]
 User=circuit-iq
 Group=circuit-iq
-WorkingDirectory=/opt/circuit-iq
-Environment=CIRCUIT_IQ_CONFIG=/etc/circuit-iq/config.yaml
+WorkingDirectory=/opt/circuit-iq-3
+Environment=CIRCUIT_IQ_CONFIG=/etc/circuit-iq-3/config.yaml
 ExecStart=/usr/local/bin/gunicorn --workers 4 --bind 0.0.0.0:5000 app:app
 Restart=always
 
@@ -120,8 +120,8 @@ WantedBy=multi-user.target
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/circuit-iq.git
-cd circuit-iq
+git clone https://github.com/YOUR_USERNAME/circuit-iq-3.git
+cd circuit-iq-3
 ```
 
 2. Create and activate virtual environment:
@@ -138,7 +138,7 @@ pip install -r requirements.txt
 ### Directory Structure
 
 ```
-circuit-iq/
+circuit-iq-3/
 ├── app.py                    # Main Flask application
 ├── datasheet_extractor.py    # Component extraction logic
 ├── pcb_designer.py          # PCB design generation
